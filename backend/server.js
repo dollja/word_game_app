@@ -5,13 +5,12 @@ const bodyParser = require("body-parser");
 const http = require("http");
 const { Server } = require("socket.io");
 const fetch = require("node-fetch");
-
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
 app.use(bodyParser.json());
-const PORT = 3000;
+const PORT = 3002;
 
 // In-memory game state
 let gameState = {
