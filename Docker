@@ -1,0 +1,22 @@
+# Use official Node.js image
+FROM node:18
+
+# Set working directory
+WORKDIR /usr/src/app
+
+# Copy package files and install dependencies
+COPY package.json package-lock.json ./
+RUN npm install
+
+# Copy all backend files
+COPY . .
+
+# Set environment variables
+ENV PORT=8080
+ENV GOOGLE_APPLICATION_CREDENTIALS=/usr/src/app/firebase-admin-sdk.json
+
+# Expose port 8080 for Cloud Run
+EXPOSE 8080
+
+# Start the server
+CMD ["node", "server.js"]
