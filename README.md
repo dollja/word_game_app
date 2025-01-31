@@ -108,5 +108,3 @@ Visit the provided URL from `http-server` in your browser.
 - If deploying on a shared server, use **HTTPS** and environment variables for security.
 
 ---
-
-This README provides everything needed to install, run, and deploy the Word Association Game. Let me know if you need modifications! 🚀

@@ -1,3 +1,4 @@
+
 # Use official Node.js image
 FROM node:18
 
@@ -13,8 +14,8 @@ COPY . .
 
 # Set environment variables
 ENV PORT=8080
-ENV GOOGLE_APPLICATION_CREDENTIALS=/usr/src/app/firebase-admin-sdk.json
 
+ENV GOOGLE_APPLICATION_CREDENTIALS=/usr/src/app/word-game-fc90d-firebase-adminsdk-fbsvc-457781f2ce.json
 # Expose port 8080 for Cloud Run
 EXPOSE 8080
 

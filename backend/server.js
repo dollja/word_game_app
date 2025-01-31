@@ -6,7 +6,7 @@ const fetch = require("node-fetch");
 const admin = require("firebase-admin");
 
 // Initialize Firebase Admin SDK (Backend)
-const serviceAccount = require("./firebase-admin-sdk.json"); // Download from Firebase Console
+const serviceAccount = require("./word-game-fc90d-firebase-adminsdk-fbsvc-457781f2ce.json"); // Download from Firebase Console
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
