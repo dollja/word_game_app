@@ -17,7 +17,7 @@ This opens a browser window to authenticate your Google account.
 #### 1.2. Set Your Google Cloud Project
 
 ```python
-gcloud config set project YOUR_PROJECT_ID
+gcloud config set project word-game-app-449405
 ```
 Replace YOUR_PROJECT_ID with your Google Cloud project ID.
 
@@ -98,15 +98,56 @@ CMD ["node", "server.js"]
 ### Step 1: Build the Docker Image
 
 ```python
-gcloud builds submit --tag gcr.io/YOUR_PROJECT_ID/word-game-backend
+gcloud builds submit --tag gcr.io/word-game-app-449405/word-game-backend
 ```
 Replace YOUR_PROJECT_ID with your Google Cloud project ID.
 
-```python
-gcloud builds submit --tag gcr.io/word-game-app-449405/word-game-backend
-```
 ### Step 2: Deploy to Cloud Run
 
 ```python
-gcloud run
+gcloud run deploy word-game-backend \
+  --image gcr.io/YOUR_PROJECT_ID/word-game-backend \
+  --platform managed \
+  --region us-central1 \
+  --allow-unauthenticated
+  
 ```
+--image → Specifies the Docker image to deploy.
+--platform managed → Deploys to fully managed Cloud Run.
+--region us-central1 → Choose the region closest to your users.
+--allow-unauthenticated → Allows anyone to access the game (you can restrict this later).
+### Step 3: Get the Public URL
+After deployment, Google Cloud Run provides a URL (e.g., https://word-game-backend-xyz.a.run.app). Copy this URL for use in the frontend.
+
+### Step 4: Connect Frontend to the Deployed Backend
+4.1. Update index.html
+Open frontend/index.html and replace:
+```python
+const BACKEND_URL = "https://word-game-backend-xyz.a.run.app";
+```
+Replace word-game-backend-xyz.a.run.app with your actual Cloud Run URL.
+#### 4.2. Deploy Frontend (Optional)
+You can deploy the frontend using:
+
+- Vercel (vercel deploy)
+- Netlify (drag and drop index.html)
+- Firebase Hosting (firebase deploy)
+
+### Step 5: Verify Deployment
+Open your backend URL (https://word-game-backend-xyz.a.run.app) in the browser → Should return a 404 or JSON response.
+Run the game from the frontend and check if:
+- Players can join.
+- The game state persists across refreshes.
+- Word submissions are validated via OpenAI.
+- Player scores are stored in Firebase Firestore.
+
+### Step 6: Secure API Keys
+For security:
+
+Restrict OpenAI API Key usage to your backend's IP.
+Restrict Cloud Run access:
+bash
+Copy
+Edit
+gcloud run services update word-game-backend --no-allow-unauthenticated
+Use Firebase Authentication if you want login-based access.
