@@ -1,6 +1,5 @@
 # word_game_app
- 
-Here's a **README.md** file for your Word Association Game application:
+overview 
 
 ---
 
@@ -53,58 +52,7 @@ word_game_app/
 git clone https://github.com/your-username/word-game-app.git
 cd word-game-app
 ```
-
-### **2. Install Backend Dependencies**
-```bash
-cd backend
-npm install
-```
-
-### **3. Start the Backend Server**
-```bash
-npm start
-```
-
-### **4. Serve the Frontend**
-Use a static server like `http-server`:
-```bash
-cd ../frontend
-npx http-server
-```
-
-### **5. Open the Game**
-Visit the provided URL from `http-server` in your browser.
-
----
-
-## **Deployment Guide**
-### **1. Deploy Backend to a Cloud Service**
-- **Heroku Deployment**:
-  ```bash
-  heroku create word-game-server
-  git push heroku main
-  ```
-
-- **AWS EC2 / DigitalOcean**:
-  ```bash
-  npm install pm2 -g
-  pm2 start server.js
-  ```
-
-### **2. Host the Frontend**
-- Use **Vercel**, **Netlify**, or **GitHub Pages** to deploy `index.html`.
-- Example with Vercel:
-  ```bash
-  npm install -g vercel
-  cd frontend
-  vercel deploy
-  ```
-
----
-
-## **Final Notes**
-- Ensure your OpenAI API key is **kept private** and not hardcoded in the frontend.
-- For persistent game states, consider integrating a database like Firebase or MongoDB.
-- If deploying on a shared server, use **HTTPS** and environment variables for security.
+update for Google Cloud services
+  
 
 ---
