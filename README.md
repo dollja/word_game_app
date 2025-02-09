@@ -47,7 +47,6 @@ word_game_app/
 git clone https://github.com/your-username/word-game-app.git
 cd word-game-app
 ```
-
 ### **2. Install Backend Dependencies**
 ```bash
 cd backend
@@ -232,5 +231,7 @@ For security:
    gcloud run services update word-game-backend --no-allow-unauthenticated
    ```
 3. **Use Firebase Authentication** if you want login-based access.
-
+=======
+update for Google Cloud services
+  
 ---
